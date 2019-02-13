@@ -1,0 +1,555 @@
+/* animation for text */
+html, body{
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+/*
+  font-family: font-family: TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif;
+  */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(45deg, gray, silver, aliceblue);
+}
+
+.containerWelcome {
+    width: 100%;
+    height: 200px;
+    background-image: url('./welcome.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 200px;
+    text-align: center;
+    color: #fff;
+    font-size: 40px;
+    line-height: 200px;
+    animation-name: show;
+    animation-duration: 10s;
+    font-weight: bold;
+    padding: 0;
+}
+
+.container-main {
+  display: grid;
+  grid-template-columns: 1fr 520px 748px 1fr;
+  grid-rows: 450px;
+  grid-gap: 5px;
+}
+
+.containerMenu {
+  grid-row: 1;
+  grid-column: 2;
+/*  width: 500px; */
+  padding: 5px 5px;
+}
+
+.container-deadlines, .container-weather, .container-events {
+  grid-row: 1;
+  grid-column: 3;
+  height: 450px;
+  border-left: 2px solid #fff;
+  padding: 10px 10px;
+  overflow-y: scroll;
+  padding: 5px 5px;
+}
+
+ul {
+    display: flex;
+    background: lightgray;
+    flex-wrap: nowrap;
+    margin-top: 50px;
+    padding: 0;
+    border-top: 2px solid #666;
+    border-bottom: 2px solid #666;
+    box-shadow: 5px 5px 3px #888;
+/*    perspective: 1000px; */
+}
+
+li {
+  margin: 0;
+  width: auto;
+  height: 350px;
+  list-style: none;
+/*  transform: rotateY(40deg); */
+}
+
+.calendar-container, .weather-container, .programs-container, .home-container {
+  display: none;
+  float:left;
+  background-size: auto auto;
+  background-repeat: no-repeat;
+  width: 350px;
+  height: 350px;
+  border: 0.5px solid white;
+}
+
+.home-container {
+  background: url('./home.png') -50px 0 no-repeat;
+  background-size: cover;
+  background-color: darkcyan;
+}
+
+.calendar-container {
+  background: url('./calendar.jpg') -50px 0;
+}
+
+.weather-container {
+  background: url('./weather.jpg') -50px 0;
+}
+
+.programs-container {
+  background: url('./outdoor.png') -130px 0;
+}
+
+a {
+  display: block;
+  width: 350px;
+  height: 350px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 350px;
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+ text-shadow: 2px 2px 1px #000;
+}
+
+.calendar-text, .weather-text, .programs-text, .home-text {
+  text-orientation: upright;
+  writing-mode: vertical-rl;
+  border: 1px solid white;
+  display: block;
+  float:left;
+  width: 50px;
+  height: 350px;
+  text-orientation: upright;
+  text-align: center;
+  line-height: 50px;
+  font-size: 30px;
+  color: white;
+  font-weight: bold;
+  text-shadow: 1px 1px 0.5px purple;
+}
+
+.calendar-text {
+  background-image: url('./calendar.jpg');
+}
+
+.weather-text {
+  background-image: url('./weather.jpg');
+}
+
+.programs-text {
+  background: url('./outdoor.png') -80px 0;
+}
+
+
+.home-text {
+  background: url('./home.png');
+  background-size: cover;
+  background-color: darkcyan;
+}
+
+
+.home-option:hover .home-container {
+   animation-name: fadeIn;
+   animation-duration: 3s;
+   display: block;
+}
+
+.calendar-option:hover .calendar-container {
+   animation-name: fadeIn;
+   animation-duration: 3s;
+   display: block;
+}
+
+.container_date, .container_action, .container_city, .container_country, .container_within, .container_Btn {
+  float: left;
+  width: 33%;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.container_weatherContent, .form_getWeather, .form_getEvent {
+  width: 95%;
+  padding: 10px;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.form_getWeather, .form_getEvent {
+  text-align: center;
+}
+
+.container_weatherContent {
+  color: #fff;
+  text-shadow: 2px 2px 1px purple;
+  font-weight: bolder;
+  margin-top: 50px;
+}
+table {
+    width: 100%;
+    margin: 0;
+    margin-top: 60px;
+    padding: 10px;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 20px;
+}
+
+th {
+   background: linear-gradient(#6495ED,#191970, #191970);
+   color: white;
+}
+
+td {
+  color: navy;
+  border: 0.5px solid #fff;
+}
+
+tr:nth-child(odd){background-color: #F0F8FF; }
+tr:nth-child(even){background-color: #E6E6FA;}
+
+.container-event_stamps {
+  margin-top: 90px;
+}
+
+
+.container-event_row {
+  border-left: 5px solid darkgreen;
+  background: lightblue;
+  width: 600px;
+  height: 120px;
+  padding: 5px;
+  margin: auto;
+  margin-top: 15px;
+  box-shadow: 5px 5px 3px #666;
+}
+
+.container-event_img {
+  float: left;
+  width: 100px;
+  height: 100px;
+  vertical-align: baseline;
+  padding: 5px;
+}
+
+.container-event_content {
+  float: left;
+  display: table-row;
+  margin-left: 5px;
+  padding: 20px;
+  width: 400px;
+}
+
+.p_event {
+  height: 16px;
+  display: table-row;
+  overflow: hidden;
+}
+input[type='text'], input[type='number'] {
+    width: 80%;
+    height: 30px;
+    padding:5px;
+    border:2px solid #ccc;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+input[type='text']:focus, input[type='number']:focus {
+    background: lightgreen;
+}
+
+input[type=datetime-local] {
+    height: 30px;
+    padding:5px;
+    border: none;
+    border:2px solid #ccc;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+button {
+  padding: 10px 10px;
+  font-size: 10px;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: lightgreen;
+  background: linear-gradient(darkgray, black);
+  border: 1px solid palegreen;
+  border-radius: 15px;
+  box-shadow: 0 6px #484848;
+}
+
+button:hover {
+  background: linear-gradient(slategray,black);
+  border: 1px solid navy;
+  box-shadow: 0 7px #303030;
+}
+
+button:active {
+  background: indianred;
+  border: none;
+  box-shadow: 0 5px darkred;
+  transform: translateY(6px);
+}
+
+.weather-option:hover .weather-container {
+   animation-name: fadeIn;
+   animation-duration: 3s;
+   display: block;
+}
+
+
+.programs-option:hover .programs-container {
+   animation-name: fadeIn;
+   animation-duration: 3s;
+   display: block;
+}
+
+.container-footer {
+  width: 100%;
+  height: 30px;
+  padding: 0;
+  background: #666;
+}
+
+
+@media screen and (min-width: 850px) and (max-width: 1200px) {
+  body {
+    background: linear-gradient(45deg, ghostwhite, cornsilk);
+  }
+
+  .container-main {
+    display: grid;
+    grid-template-columns: 1fr 750px 1fr;
+    grid-template-rows: 450px 450px;
+  }
+
+  .containerMenu {
+    grid-row: 1;
+    grid-column: 2;
+  }
+
+  ul {
+    background-color: hsl(0, 0%, 75%); 
+  }
+
+
+  .container-deadlines, .container-weather, .container-events {
+    background-color: hsl(0, 0%, 75%); 
+    border-top: 2px solid #444;
+    grid-row: 2;
+    grid-column: 2;
+    box-shadow: 3px 3px 1px #555;
+  }
+
+  .container-footer {
+    margin-top: 20px;
+    padding: 10px;
+  }
+
+}
+
+
+@media screen and (min-width: 600px) and (max-width: 849px) {
+  body {
+    background: linear-gradient(45deg, ghostwhite, cornsilk);
+  }
+
+  .containerWelcome {
+    font-size: 25px;
+  }
+
+  .container-main {
+    display: grid;
+    grid-template-columns: 1fr 600px 1fr;
+    grid-template-rows: 450px 450px;
+  }
+
+  .containerMenu {
+    grid-row: 1;
+    grid-column: 2;
+  }
+
+  .container-deadlines, .container-weather, .container-events {
+    background-color: hsl(0, 0%, 75%); 
+    border-top: 2px solid #444;
+    grid-row: 2;
+    grid-column: 2;
+    box-shadow: 3px 3px 1px #555;
+  }
+
+
+  .container-event_row {
+    width: 500px;
+  }
+
+  ul {
+    background-color: hsl(0, 0%, 75%); 
+  }
+
+  .container-event_content {
+    width: 300px;
+  }
+
+  .container-footer {
+    margin-top: 20px;
+    padding: 10px;
+  }
+
+}
+
+
+@media screen and (max-width: 599px) {
+  body {
+    background: linear-gradient(45deg, ghostwhite, cornsilk);
+  }
+
+  .containerWelcome {
+    font-size: 20px;
+  }
+
+  .container-main {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    grid-template-rows: 450px 450px;
+  }
+
+  .containerMenu {
+    grid-row: 1;
+    grid-column: 2;
+  }
+
+  .container-deadlines, .container-weather, .container-events {
+    background-color: hsl(0, 0%, 75%); 
+    border-top: 2px solid #444;
+    grid-row: 2;
+    grid-column: 2;
+    box-shadow: 3px 3px 1px #555;
+  }
+
+
+  .container-event_row {
+    width: 500px;
+  }
+
+  ul {
+    background-color: hsl(0, 0%, 75%); 
+  }
+
+  .container-event_content {
+    width: 300px;
+  }
+
+  .container-footer {
+    margin-top: 20px;
+    padding: 10px;
+  }
+
+
+  li {
+    margin: 0;
+    width: auto;
+    height: 250px;
+    list-style: none;
+/*  transform: rotateY(40deg); */
+}
+
+  .calendar-container, .weather-container, .programs-container, .home-container {
+    display: none;
+    float:left;
+    background-size: auto auto;
+    background-repeat: no-repeat;
+    width: 250px;
+    height: 250px;
+    border: 0.5px solid white;
+  }
+
+  .home-container {
+    background: url('./home.png') -25px 0 no-repeat;
+    background-size: cover;
+    background-color: darkcyan;
+  }
+
+  .calendar-container {
+    background: url('./calendar.jpg') -25px 0;
+  }
+
+  .weather-container {
+    background: url('./weather.jpg') -25px 0;
+  }
+
+  .programs-container {
+    background: url('./outdoor.png') -105px 0;
+  }
+
+  a {
+    display: block;
+    width: 250px;
+    height: 250px;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 250px;
+    text-decoration: none;
+    color: white;
+  }
+
+  a:hover {
+    text-shadow: 1px 2px 1px #000;
+  }
+
+  .calendar-text, .weather-text, .programs-text, .home-text {
+    text-orientation: upright;
+    writing-mode: vertical-rl;
+    border: 1px solid white;
+    display: block;
+    float:left;
+    width: 25px;
+    height: 250px;
+    text-orientation: upright;
+    text-align: center;
+    line-height: 25px;
+    font-size: 15px;
+    color: white;
+    font-weight: bold;
+    text-shadow: 1px 1px 0.5px purple;
+  }
+
+  .calendar-text {
+    background-image: url('./calendar.jpg');
+  }
+
+  .weather-text {
+    background-image: url('./weather.jpg');
+  }
+
+  .programs-text {
+    background: url('./outdoor.png') -80px 0;
+  }
+}
+
+
+
+
+
+
+
+@keyframes show {
+  0% {color: #fff; }
+  50% {color: darkgreen;}
+  100% {color: #fff;}
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
