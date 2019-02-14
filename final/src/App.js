@@ -16,9 +16,9 @@ import './App.css'
 
 
 //api key for weather part
-const API_KEY = '3c11ac426e027bc3393b7a2f675756ef'
+const API_KEY = '********************'
 
-const API_KEY_EVENT = 'BQJDZFF6UNLAAOFWBADJ'
+const API_KEY_EVENT = '******************'
 
 const HelloApp = () => (
   <Router>
